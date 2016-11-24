@@ -1,0 +1,220 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #737373;
+    background-color: white;
+    margin: 10px 13px 10px 13px;
+}
+table {
+	margin: 10px 0 15px 0;
+	border-collapse: collapse;
+}
+td,th {	
+	border: 1px solid #ddd;
+	padding: 3px 10px;
+}
+th {
+	padding: 5px 10px;	
+}
+
+a {
+    color: #0069d6;
+}
+a:hover {
+    color: #0050a3;
+    text-decoration: none;
+}
+a img {
+    border: none;
+}
+p {
+    margin-bottom: 9px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #404040;
+    line-height: 36px;
+}
+h1 {
+    margin-bottom: 18px;
+    font-size: 30px;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 18px;
+}
+h4 {
+    font-size: 16px;
+}
+h5 {
+    font-size: 14px;
+}
+h6 {
+    font-size: 13px;
+}
+hr {
+    margin: 0 0 19px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+blockquote {
+    padding: 13px 13px 21px 15px;
+    margin-bottom: 18px;
+    font-family:georgia,serif;
+    font-style: italic;
+}
+blockquote:before {
+    content:"\201C";
+    font-size:40px;
+    margin-left:-10px;
+    font-family:georgia,serif;
+    color:#eee;
+}
+blockquote p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    margin-bottom: 0;
+    font-style: italic;
+}
+code, pre {
+    font-family: Monaco, Andale Mono, Courier New, monospace;
+}
+code {
+    background-color: #fee9cc;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 1px 3px;
+    font-size: 12px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+pre {
+    display: block;
+    padding: 14px;
+    margin: 0 0 18px;
+    line-height: 16px;
+    font-size: 11px;
+    border: 1px solid #d9d9d9;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+pre code {
+    background-color: #fff;
+    color:#737373;
+    font-size: 11px;
+    padding: 0;
+}
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:10px auto;
+    }
+}
+@media print {
+	body,code,pre code,h1,h2,h3,h4,h5,h6 {
+		color: black;
+	}
+	table, pre {
+		page-break-inside: avoid;
+	}
+}
+</style>
+<title>http的格式</title>
+
+</head>
+<body>
+<h1>http的格式</h1>
+
+<h2>1.request</h2>
+
+<p><strong>HTTP Headers是HTTP请求和相应的核心，它承载了关于客户端浏览器，请求页面，服务器等相关的信息。</strong></p>
+
+<p><strong>当你在浏览器地址栏里键入一个url，你的浏览器将会类似如下的http请求：</strong></p>
+
+<p><strong>第一行被称为“Request Line” 它描述的是这个请求的基本信息，剩下的就是HTTP headers了</strong></p>
+
+<p>GET /tutorials/other/top-20-mysql-best-practices/ HTTP/1.1</p>
+
+<p>Host: net.tutsplus.com</p>
+
+<p>User-Agent: Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.1.5) Gecko/20091102 Firefox/</p>
+
+<p>3.5.5 (.NET CLR 3.5.30729)</p>
+
+<p>Accept: text/html,application/xhtml+xml,application/xml;q=0.9,<em>/</em>;q=0.8</p>
+
+<p>Accept-Language: en-us,en;q=0.5</p>
+
+<p>Accept-Encoding: gzip,deflate</p>
+
+<p>Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7</p>
+
+<p>Keep-Alive: 300</p>
+
+<p>Connection: keep-alive</p>
+
+<p>Cookie: PHPSESSID=r2t5uvjq435r4q7ib3vtdjq120</p>
+
+<p>Pragma: no-cache</p>
+
+<p>Cache-Control: no-cache</p>
+
+<h2>2.response</h2>
+
+<p>第一行呢被称为“Status Line”，它之后就是http headers
+但你查看页面源代码却不能看到HTTP headers，虽然它们同你能看到的东西一起被传送至浏览器了。</p>
+
+<p>这个HTTP请求也发出了一些其它资源的接收请求，例如图片，css文件，js文件等等</p>
+
+<pre><code>HTTP/1.x 200 OK
+Transfer-Encoding: chunked
+Date: Sat, 28 Nov 2009 04:36:25 GMT
+Server: LiteSpeed
+Connection: close
+X-Powered-By: W3 Total Cache/0.8
+Pragma: public
+Expires: Sat, 28 Nov 2009 05:36:25 GMT
+Etag: "pub1259380237;gz"
+Cache-Control: max-age=3600, public
+Content-Type: text/html; charset=UTF-8
+Last-Modified: Sat, 28 Nov 2009 03:50:37 GMT
+X-Pingback: http://net.tutsplus.com/xmlrpc.php
+Content-Encoding: gzip
+Vary: Accept-Encoding, Cookie, User-Agent´
+</code></pre>
+</body>
+</html>
